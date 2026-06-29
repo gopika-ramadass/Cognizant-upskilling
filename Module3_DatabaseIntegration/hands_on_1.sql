@@ -1,9 +1,9 @@
-#Create Database
+-- #Create Database
 CREATE DATABASE college_db;
 
 USE college_db;
 
-#Departments Table
+-- #Departments Table
 CREATE TABLE departments (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
     dept_name VARCHAR(100) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE departments (
     budget DECIMAL(12,2)
 );
 
-#Students Table
+-- #Students Table
 CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE students (
 	REFERENCES departments(department_id)
 );
 
-#Courses Table
+-- #Courses Table
 CREATE TABLE courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
     course_name VARCHAR(150) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE courses (
 	REFERENCES departments(department_id)
 );
 
-#Enrollments Table
+-- #Enrollments Table
 CREATE TABLE enrollments (
     enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
@@ -48,7 +48,7 @@ CREATE TABLE enrollments (
 	REFERENCES courses(course_id)
 );
 
-#professors Table
+-- #professors Table
 CREATE TABLE professors (
     professor_id INT AUTO_INCREMENT PRIMARY KEY,
     prof_name VARCHAR(100) NOT NULL,
