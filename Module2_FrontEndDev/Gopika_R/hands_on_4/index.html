@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Async Dashboard</title>
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">Student Portal</h2>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Grades</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Welcome to the Student Portal</h1>
+            <p>
+                Learn modern technologies, track your academic progress,
+                and explore new opportunities.
+            </p>
+            <button class="btn-primary">Explore Courses</button>
+        </section>
+
+        <!-- Student Stats -->
+        <section class="stats">
+            <div class="stat-box">
+                <h3>3</h3>
+                <p>Courses Enrolled</p>
+            </div>
+            <div class="stat-box">
+                <h3>3.8</h3>
+                <p>GPA</p>
+            </div>
+            <div class="stat-box">
+                <h3>6</h3>
+                <p>Semester</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace Layout: Courses Grid and Side Panel (Notifications & Selected Course) -->
+        <div class="workspace-grid">
+            
+            <!-- Left Side: Courses Dashboard -->
+            <section id="courses" class="main-panel">
+                <h2>Available Courses</h2>
+                
+                <!-- Search & Filter Controls -->
+                <div class="controls-container">
+                    <input type="text" id="search-courses" placeholder="🔍 Search courses by name...">
+                    <button id="sort-btn" class="btn-secondary">Sort by Credits ↓</button>
+                </div>
+
+                <!-- Async Course Loading Indicator -->
+                <div id="courses-loader" class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Loading courses...</p>
+                </div>
+
+                <!-- Dynamic Course Grid -->
+                <div class="course-grid hidden">
+                    <!-- Courses will be rendered here dynamically after async load -->
+                </div>
+
+                <!-- Total Credits Display -->
+                <div class="summary-container">
+                    <p id="total-credits">Total Credits: <strong>0</strong></p>
+                </div>
+
+                <!-- Selected Course Details -->
+                <div id="selected-course" class="selected-course-container">
+                    <h3>Course Details</h3>
+                    <p class="placeholder-text">Click a course card to view detailed grade information.</p>
+                </div>
+            </section>
+
+            <!-- Right Side: Live Notifications & API Integration -->
+            <section id="notifications" class="side-panel">
+                <h2>Recent Notifications</h2>
+
+                <!-- Loading Spinner for Notifications -->
+                <div id="notifications-loader" class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Loading announcements...</p>
+                </div>
+
+                <!-- Notifications Error Container -->
+                <div id="notifications-error" class="error-container hidden">
+                    <p class="error-message"></p>
+                    <button id="retry-notifications-btn" class="btn-secondary btn-small">Retry Fetch</button>
+                </div>
+
+                <!-- Notifications Content List -->
+                <div id="notifications-list" class="notifications-list hidden">
+                    <!-- Dynamic notification elements will be rendered here -->
+                </div>
+
+                <!-- Demo testing endpoint buttons -->
+                <div class="test-actions">
+                    <h3>API Debug Panel</h3>
+                    <button id="test-404-btn" class="btn-secondary btn-small">Simulate 404 Error</button>
+                    <button id="fetch-user1-btn" class="btn-secondary btn-small">Axios: User 1 Posts</button>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Student Portal | All Rights Reserved</p>
+    </footer>
+
+    <!-- ES6 Module Entry Point -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
