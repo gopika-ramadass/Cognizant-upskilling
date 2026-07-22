@@ -1,0 +1,45 @@
+<!-- 
+================================================================================
+DIGITAL NURTURE 5.0 - HANDS-ON 9: ACCESSIBILITY AUDIT REPORT
+================================================================================
+INITIAL LIGHTHOUSE AUDIT SCORE: 72 / 100
+POST-REMEDIATION TARGET SCORE:  100 / 100
+
+FLAGGED ACCESSIBILITY VIOLATIONS & REMEDIATION SUMMARY:
+--------------------------------------------------------------------------------
+1. [Violation] <img> elements missing alt attributes.
+   - Fix: Added descriptive alt text to all functional images and alt="" to 
+     decorative icons so screen readers properly handle or skip them.
+
+2. [Violation] Form inputs missing associated <label> elements.
+   - Fix: Added explicit <label htmlFor="..."> tags linked to every <input> 
+     field across search inputs and student profile form components.
+
+3. [Violation] Incorrect heading hierarchy (skipped levels like <h1> to <h3>).
+   - Fix: Restructured headings sequentially from <h1> (Page title) -> <h2> (Section 
+     headers) -> <h3> (Course card titles).
+
+4. [Violation] Non-semantic <div> and <span> elements used as buttons/links.
+   - Fix: Converted all interactive triggers to native <button> elements with 
+     type="button", or added role="button" with tabIndex={0} and keyboard event handlers.
+
+5. [Violation] Navigation landmark missing descriptive ARIA label.
+   - Fix: Added aria-label="Main navigation" to <nav> and aria-current="page" to active link.
+
+6. [Violation] Dynamic content updates not announced to screen readers.
+   - Fix: Added role="status" and aria-live="polite" to live search results counter.
+================================================================================
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal - Accessible & Cross-Browser App (Hands-On 9)</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
